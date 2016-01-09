@@ -1,0 +1,100 @@
+/* app css stylesheet */
+.hoverwell:hover {
+  background-color: #747b82;
+  cursor: pointer;
+}
+body{
+    background-color: #52575c;
+    color: white;
+}
+
+.form-control{
+    margin-bottom: 10px;
+}
+select{
+    background-color: #404448;
+    border-color: #0f0f0f;
+}
+
+.well{
+    background-color: #404448;
+    border-color: #404448;
+}
+
+.well-title {
+    margin-top: 0px;
+}
+.session {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.col-md-1{
+    width: 6%;
+    margin-right: 10px;
+}
+.votingWidget {
+  /*height: 80px;*/
+  /*padding: 7px;*/
+}
+
+.votingButton {
+  padding-left:1px;
+  padding-top:3px;
+  cursor:pointer;
+}
+
+.sessionThumbnail {
+    height:100%;
+    overflow: hidden;
+}
+
+
+.calendar{
+    border: 1px solid #555;
+    width: 238px;
+}
+.calendar .row {
+    margin-left: 0px;
+}
+.calendar .row div{
+    float:left;
+    padding:2px;
+    width:30px;
+    text-align:center;
+}
+.calendar-nav-left {
+    float:left;
+    width: 20px;
+    padding:2px;
+}
+.calendar-nav-right {
+    float:left;
+    width: 20px;
+    padding:2px;
+    text-align:right;
+}
+
+.calendar .row .calendar-hdr {
+    padding:2px;
+    float:left;
+    width: 166px;
+    text-align:center;
+}
+.pointer {
+    cursor: pointer;
+}
+.date-picker {
+    position: absolute;
+    top: -7px;
+    left: 209px;
+    background-color: #272b30;
+}
+/*This allows for the angular bindings to grab their values before being displayed*/
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+    display: none !important;
+}

@@ -1,0 +1,74 @@
+
+<div ng-style="eventStyle">
+    <div class="container">
+        <img ng-src="{{event.imageUrl}}">
+        <!--<button type="button" class="btn btn-primary" ng-click="scrollToSession()">Scroll</button>-->
+        <div class="row">
+            <div class="col-md-12">
+                <!--Replaced bind with filter for uppercase-->
+                <!--<h2 ng-bind="event.name"></h2>-->
+                <h2>{{event.name | uppercase}}</h2>
+            </div>
+        </div>
+
+        <!--<div ng-bind-html="snippet">some title</div>-->
+
+        <div class="row">
+            <div class="col-md-3">
+                <div><strong>Date: </strong>{{event.date | date:'mediumDate'}}</div>
+                <div><strong>Time: </strong>{{event.time}}</div>
+                <div><strong>Price: </strong>{{34 | currency}}</div>
+            </div>
+            <div class="col-md-4">
+                <address>
+                    <strong>Address:</strong><br />
+                    {{event.location.address}}<br />
+                    {{event.location.city}}, {{event.location.province}}
+                </address>
+            </div>
+        </div>
+
+        <hr />
+
+        <h3>Sessions</h3>
+        Order By:
+        <select ng-model="sortorder" class="input-small selectedValue">
+            <option selected value="name">Name</option>
+            <option value="-upVoteCount">Votes</option>
+        </select>
+        Show:
+        <select ng-model="query.level" class="input-medium">
+            <option selected value="">All</option>
+            <option value="Introductory">Introductory</option>
+            <option value="Intermediate">Intermediate</option>
+            <option value="Advanced">Advanced</option>
+        </select><br/><br/>
+        <ul class="thumbnails" style="list-style-type: none">
+            <!--Repeat for each session to display all details-->
+            <li ng-repeat="session in event.sessions | orderBy:sortorder | filter:query" id="session{{session.id}}">
+                <div class="row session">
+                    <div class="col-md-1 text-center well votingWidget">
+                        <div class="votingButton" ng-click="upVoteSession(session)">
+                            <span class="glyphicon glyphicon-chevron-up"></span>
+                        </div>
+                        <div class="badge badge-inverse text-center">
+                            <div>{{session.upVoteCount}}</div>
+                        </div>
+                        <div class="votingButton" ng-click="downVoteSession(session)">
+                            <span class="glyphicon glyphicon-chevron-down"></span>
+                        </div>
+                    </div>
+                    <div class="well col-md-6">
+                        <h4 class="well-title">{{session.name}}</h4>
+                        <h6 style="margin-top: -10px;">{{session.creatorName}}</h6>
+                        <span>Duration: {{session.duration | durations}}</span><br />
+                        <span>Level: {{session.level}}</span>
+
+                        <p>{{session.abstract}}</p>
+                    </div>
+                </div>
+
+            </li>
+        </ul>
+    </div>
+</div>
