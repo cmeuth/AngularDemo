@@ -94,6 +94,10 @@ select{
     left: 209px;
     background-color: #272b30;
 }
+
+.btn{
+    color: #0f0f0f;
+}
 /*This allows for the angular bindings to grab their values before being displayed*/
 [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
     display: none !important;
