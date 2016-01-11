@@ -48,17 +48,7 @@
             <!--Repeat for each session to display all details-->
             <li ng-repeat="session in event.sessions | orderBy:sortorder | filter:query" id="session{{session.id}}">
                 <div class="row session">
-                    <div class="col-md-1 text-center well votingWidget">
-                        <div class="votingButton" ng-click="upVoteSession(session)">
-                            <span class="glyphicon glyphicon-chevron-up"></span>
-                        </div>
-                        <div class="badge badge-inverse text-center">
-                            <div>{{session.upVoteCount}}</div>
-                        </div>
-                        <div class="votingButton" ng-click="downVoteSession(session)">
-                            <span class="glyphicon glyphicon-chevron-down"></span>
-                        </div>
-                    </div>
+                    <upvote upvote="upVoteSession(session)" downvote="downVoteSession(session)" count="session.upVoteCount"/>
                     <div class="well col-md-6">
                         <h4 class="well-title">{{session.name}}</h4>
                         <h6 style="margin-top: -10px;">{{session.creatorName}}</h6>
