@@ -1,47 +1,7 @@
-<!doctype html>
-<html lang="en" ng-app="eventsApp">
-<head>
-    <meta charset="utf-8">
-    <Title>Event Registration</Title>
-    <link rel="stylesheet" href="/lib/css/bootstrap.min.css">
-    <link rel="stylesheet" href="/lib/css/app.css">
-</head>
-<body ng-cloak>
-
 <div class="container">
-    <!-- Static navbar -->
-    <nav class="navbar navbar-inverse">
-        <div class="container-fluid">
-            <div id="navbar" class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li class="active"><a href="/EventDetails.html">Home</a></li>
-                    <li><a href="/NewEvent.html">Add Event</a></li>
-                    <li><a href="/EditProfile.html">Edit Profile</a></li>
-                    <li><a href="/CacheSample.html">Cache Sample</a></li>
-                    <li><a href="/CompileSample.html">Compile Sample</a></li>
-                    <li><a href="/LocaleSample.html">Locale Sample</a></li>
-                    <li><a href="/FilterSample.html">Filter Sample</a></li>
-                </ul>
-            </div><!--/.nav-collapse -->
-        </div><!--/.container-fluid -->
-    </nav>
-    <div ng-controller="LocaleSampleController" style="padding:20px;">
+    <div style="padding:20px;">
         <div class="container">
             <h3>{{myDate | date:myFormat}}</h3>
         </div>
     </div>
-
-<!--Include Libraries-->
-<script src="/lib/js/jquery-1.11.3.min.js"></script>
-<script src="/lib/js/underscore-1.4.4.min.js"></script>
-<script src="/lib/js/bootstrap.min.js"></script>
-<script src="/lib/angular/angular.js"></script>
-<script src="/lib/angular/angular-sanitize.js"></script>
-<script src="/lib/angular/angular-resource.js"></script>
-<script src="/js/app.js"></script>
-<script src="/js/controllers/LocaleSampleController.js"></script>
-<script src="/js/filters.js"></script>
-<script src="/js/services/EventData.js"></script>
-<script src="/js/services/ExceptionHandler.js"></script>
-</body>
-</html>
+</div>

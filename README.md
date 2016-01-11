@@ -4,7 +4,7 @@ This is my version of the PluralSight AngularJS Fundamentals application. It is 
 
 ### Server
 
-In this demonstration, the backend of the website is a Node Web Server. I have been using the command 'bash server.bat' to start the server.
+In this demonstration, the backend of the website is a Node Web Server. Simply run ./server.sh to start the server.
 ### Running the application
 
 Navigate your browser to `http://localhost:8000/` to see the app running in your browser.

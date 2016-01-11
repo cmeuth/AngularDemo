@@ -14,6 +14,9 @@ app.get('/data/event/:id', events.get);
 app.get('/data/event/', events.getAll);
 app.post('/data/event/:id', events.save);
 
+//Always return index.html for any requested route. Part of enabling HTML5 mode.
+app.get('*', function(req, res) { res.sendFile( rootPath + 'app/index.html'); });
+
 app.listen(8000);
 
 console.log('Listening on port 8000...');

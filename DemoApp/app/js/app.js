@@ -1,7 +1,7 @@
 'use strict';
 
 var eventsApp = angular.module('eventsApp', ['ngSanitize', 'ngResource', 'ngRoute'])
-    .config(function($routeProvider){
+    .config(function($routeProvider, $locationProvider){
         $routeProvider.when('/cache',
             {
                 templateUrl: 'templates/CacheSample.html',
@@ -17,23 +17,25 @@ var eventsApp = angular.module('eventsApp', ['ngSanitize', 'ngResource', 'ngRout
                 templateUrl: 'templates/EditProfile.html',
                 controller: 'EditProfileController'
             });
-        $routeProvider.when('/eventDetails',
-            {
-                templateUrl: 'templates/EventDetails.html',
-                controller: 'EventDetails.html'
-            });
         $routeProvider.when('/events',
             {
                 templateUrl: 'templates/EventList.html',
                 controller: 'EventListController'
             });
+        $routeProvider.when('/event/:eventId',
+            {
+                foo: 'bar',
+                templateUrl: 'templates/EventDetails.html',
+                controller: 'EventController',
+                resolve: {
+                    event: function($route, eventData){
+                        return eventData.getEvent($route.current.pathParams.eventId).$promise;
+                    }
+                }
+            });
         $routeProvider.when('/filter', {
             templateUrl: 'templates/FilterSample.html',
             controller: 'FilterSampleController'
-        });
-        $routeProvider.when('/newEvent', {
-            templateUrl: 'templates/NewEvent.html',
-            controller: 'EditEventController'
         });
         $routeProvider.when('/locale', {
             templateUrl: 'templates/LocaleSample.html',
@@ -43,6 +45,15 @@ var eventsApp = angular.module('eventsApp', ['ngSanitize', 'ngResource', 'ngRout
             templateUrl: 'templates/NewEvent.html',
             controller: 'EditEventController'
         });
+        $routeProvider.when('/sampleDirective', {
+            templateUrl: 'templates/SampleDirective.html',
+            controller: 'SampleDirectiveController'
+        });
+        $routeProvider.otherwise({
+            redirectTo: '/events'
+        });
+
+        $locationProvider.html5Mode(true);
     })
     .factory('myCache', function($cacheFactory){
         return $cacheFactory('myCache', {capacity:3});

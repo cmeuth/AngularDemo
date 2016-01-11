@@ -1,6 +1,7 @@
 <!doctype html>
 <html lang="en" ng-app="eventsApp">
 <head>
+    <base href="/">
     <meta charset="utf-8">
     <Title>Event Registration</Title>
     <link rel="stylesheet" href="/lib/css/bootstrap.min.css">
@@ -10,30 +11,39 @@
 
 <div class="container">
     <!-- Static navbar -->
-    <nav class="navbar navbar-inverse">
+    <nav class="navbar navbar-inverse" ng-controller="MainMenuController">
         <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#" ng-click="createEvent()">Angular Demo</a>
+            </div>
             <div id="navbar" class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li class="active"><a href="#/eventDetails">Event Details</a></li>
-                    <li><a href="#/events">All Events</a></li>
-                    <li><a href="#/newEvent">Add Event</a></li>
-                    <li><a href="#/editProfile">Edit Profile</a></li>
-                        <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Angular Samples
-                            <span class="caret"></span></button>
+                    <li ng-class="{ active: isActive('#/events')}"><a href="events">All Events</a></li>
+                    <li ng-class="{ active: isActive('#/newEvent')}"><a href="newEvent">Add Event</a></li>
+                    <li ng-class="{ active: isActive('#/editProfile')}"><a href="editProfile">Edit Profile</a></li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Angular Samples <span class="caret"></span></a>
                         <ul class="dropdown-menu">
-                            <li><a href="#/cache">Cache Sample</a></li>
-                            <li><a href="#/compile">Compile Sample</a></li>
-                            <li><a href="#/locale">Locale Sample</a></li>
-                            <li><a href="#/filter">Filter Sample</a></li>
+                            <li ><a href="cache">Cache Sample</a></li>
+                            <li><a href="compile">Compile Sample</a></li>
+                            <li><a href="locale">Locale Sample</a></li>
+                            <li><a href="filter">Filter Sample</a></li>
+                            <li><a href="sampleDirective">Directive Sample</a></li>
                         </ul>
+                    </li>
                 </ul>
             </div><!--/.nav-collapse -->
         </div><!--/.container-fluid -->
     </nav>
 
-    <ng-view>
+    <ng-view></ng-view>
 
-    </ng-view>
 </div>
 
 <!--Include Libraries-->
@@ -54,8 +64,14 @@
 <script src="/js/controllers/EventController.js"></script>
 <script src="/js/controllers/FilterSampleController.js"></script>
 <script src="/js/controllers/LocaleSampleController.js"></script>
+<script src="/js/controllers/SampleDirectiveController.js"></script>
+<script src="/js/controllers/HeaderController.js"></script>
+<script src="/js/controllers/MainMenuController.js"></script>
 <!--Filters and services-->
 <script src="/js/filters.js"></script>
+<script src="/js/directives.js"></script>
 <script src="/js/services/EventData.js"></script>
+<script src="/js/services/GravatarUrlBuilder.js"></script>
+<!--<script src="/js/services/ExceptionHandler.js"></script>-->
 </body>
 </html>
